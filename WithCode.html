@@ -1,0 +1,86 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parallax New</title>
+    <link rel="stylesheet" href="css/main.css">
+    <script type="text/javascript" src="js/scrollAnimations.js"></script>
+    <script type="module" src="js/chapter.js"></script>
+    <script type="module" src="js/chapterLoader.js"></script>
+    <script type="text/javascript" src="js/clickables.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Shrikhand&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet"> 
+</head>
+
+<body>
+    <div class="scrollsnap-container">
+        <h2 id="yeardisplay"></h2>
+        <a class="clickable" href="#titleScreen">
+            <img id="totop" src="img/Icons/up-arrow.png"/>
+        </a>    
+        <div class="img-fixed titlewrapper" id="titleScreen" data-year="">
+            <div class="menu">
+                <div id="menubtn" onclick="toggleMenu()">
+                    <img id="burgericon" src="img/Icons/Menu.png">
+                </div>
+                <ul id="menuItems">
+                    <li>
+                        <a href="html/about.html">Über</a>
+                    </li>
+                    <li>
+                        <a href="html/sources.html">Impressum & Quellen</a>
+                    </li>
+                </ul>
+            </div>
+            <h1>Hippies</h1>
+            <div class="scrollprompt">
+                <h3>Scrolle um ihre Geschichte zu erleben!</h3>
+            </div>
+        </div>
+
+        <div class="storywrapper" id="owsley">
+            <a class="storypart floatdown clickable" href="html/chaptercloseup.html">
+                <h2></h2>
+                <p></p>
+                <img class="furtherarrow" src="img/Icons/right-arrow.png" />
+            </a>
+        </div>
+        <div class="storywrapper"  id="pranksters">
+            
+            <a class="storypart story-left clickable" href="html/chaptercloseup.html">
+                <h2>floatdown</h2>
+                <p></p>
+                <img class="furtherarrow" src="img/Icons/right-arrow.png" />
+            </a>
+        </div>
+        <div class="storywrapper" id="redDog">
+            <a class="storypart slide-to-right clickable" href="html/chaptercloseup.html">
+                <h2>Acid Tests</h2>
+                <p></p>
+                <img class="furtherarrow" src="img/Icons/right-arrow.png" />
+            </a>
+        </div>
+        <div class="storywrapper" id="woodstock">
+            <a class="storypart story-right clickable" href="html/chaptercloseup.html">
+                <h2>float Right</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum deserunt assumenda corporis aut
+                    omnis incidunt alias quasi numquam. Velit recusandae sunt assumenda eaque aliquid fugiat
+                    voluptatibus provident optio deserunt ratione.</p>
+                <img class="furtherarrow" src="img/Icons/right-arrow.png" />
+            </a>
+        </div>
+        <div class="storywrapper" style="background-color: yellow;" data-year="">
+            <a class="storypart floatup clickable" href="html/chaptercloseup.html">
+                <h2>slide to left</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum deserunt assumenda corporis aut
+                    omnis incidunt alias quasi numquam. Velit recusandae sunt assumenda eaque aliquid fugiat
+                    voluptatibus provident optio deserunt ratione.</p>
+                <img class="furtherarrow" src="img/Icons/right-arrow.png" />
+            </a>
+        </div>
+    </div>
+</body>
+
+</html>

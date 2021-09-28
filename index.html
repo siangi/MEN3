@@ -1,36 +1,35 @@
-<html lang="en">
-
-<head>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Parallax New</title>
-    <link rel="stylesheet" href="css/main.css">
-    <script type="text/javascript" src="js/scrollAnimations.js"></script>
-    <script type="module" src="js/chapter.js"></script>
-    <script type="module" src="js/chapterLoader.js"></script>
-    <script type="text/javascript" src="js/clickables.js"></script>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Shrikhand&display=swap" rel="stylesheet"> 
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="Parallax%20New_files/main.css">
+    <script type="text/javascript" src="Parallax%20New_files/scrollAnimations.js"></script>
+    <script type="module" src="Parallax%20New_files/chapter.js"></script>
+    <script type="module" src="Parallax%20New_files/chapterLoader.js"></script>
+    <script type="text/javascript" src="Parallax%20New_files/clickables.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com/">
+    <link href="Parallax%20New_files/css2_002.css" rel="stylesheet"> 
+    <link href="Parallax%20New_files/css2.css" rel="stylesheet"> 
 </head>
 
 <body>
     <div class="scrollsnap-container">
         <h2 id="yeardisplay"></h2>
         <a class="clickable" href="#titleScreen">
-            <img id="totop" src="img/Icons/up-arrow.png"/>
+            <img id="totop" src="Parallax%20New_files/up-arrow.png" style="opacity: 0;">
         </a>    
         <div class="img-fixed titlewrapper" id="titleScreen" data-year="">
             <div class="menu">
-                <div id="menubtn" onclick="toggleMenu()">
-                    <img id="burgericon" src="img/Icons/Menu.png">
+                <div id="menubtn" onclick="toggleMenu()" style="transform: rotate(180deg);">
+                    <img id="burgericon" src="Parallax%20New_files/Menu.png">
                 </div>
-                <ul id="menuItems">
+                <ul id="menuItems" style="transform: translate(272px);">
                     <li>
-                        <a href="html/about.html">Über</a>
+                        <a href="http://127.0.0.1:5500/html/about.html">Über</a>
                     </li>
                     <li>
-                        <a href="html/sources.html">Impressum & Quellen</a>
+                        <a href="http://127.0.0.1:5500/html/sources.html">Impressum &amp; Quellen</a>
                     </li>
                 </ul>
             </div>
@@ -40,47 +39,116 @@
             </div>
         </div>
 
-        <div class="storywrapper" id="owsley">
-            <a class="storypart floatdown clickable" href="html/chaptercloseup.html">
-                <h2></h2>
-                <p></p>
-                <img class="furtherarrow" src="img/Icons/right-arrow.png" />
+        <div class="storywrapper" id="owsley" data-year="1963" style="background-repeat: no-repeat; background-size: cover; background-attachment: fixed; background-image: url(&quot;../img/ChapterBackgrounds/Owsley.svg&quot;);">
+            <a class="storypart floatdown clickable" href="http://127.0.0.1:5500/html/chaptercloseup.html">
+                <h2>Owsley Stanley stellt zum ersten Mal LSD her</h2>
+                <p>Owsley Stanley war nicht die erste Person, die LSD 
+herstellte, aber er war einer der Hauptproduzenten für die Hippiesezene 
+in Kalifornien. Seine Karriere als Untergrundchemiker begann 1963 
+während des Studiums an der University of Cailfornia in Berkeley</p>
+                <img class="furtherarrow" src="Parallax%20New_files/right-arrow.png">
             </a>
-        </div>
-        <div class="storywrapper"  id="pranksters">
+        <audio src="Parallax%20New_files/Bus.wav"></audio></div>
+        <div class="storywrapper" id="pranksters" data-year="1964" style="background-repeat: no-repeat; background-size: auto 100%; background-position: right center; background-attachment: fixed; background-image: url(&quot;../img/ChapterBackgrounds/SchoolBus.svg&quot;);">
             
-            <a class="storypart story-left clickable" href="html/chaptercloseup.html">
-                <h2>floatdown</h2>
-                <p></p>
-                <img class="furtherarrow" src="img/Icons/right-arrow.png" />
+            <a class="storypart story-left clickable" href="http://127.0.0.1:5500/html/chaptercloseup.html">
+                <h2>Die Merry Pranksters Tour</h2>
+                <p>Die beiden Autoren Ken Keasey (One flew over the 
+Cuckoo's Nest) und Neal Cassady beschlossen 1964 mit, dass sie von 
+Kalifornien zur Weltausstellung in New York fahren wollten, 13 andere 
+Personen schlossen sich ihnen an. Die Gruppe nannte sich die "Merry 
+Pranksters" (fröhliche Spassvögel). Sie kauften sie sich einen Schulbus,
+ malten diesen wild an und fuhren einmal quer durch die Vereinigten 
+Staaten. Auf dem Weg veranstalten sie die "Kool-Aid Acid Tests". Partys,
+ bei denen man am Eingang einen Becher Kool-Aid gemischt mit LSD bekam. 
+Diese trugen massgeblich zur Verbreitung der Hippie-Kultur und Musik in 
+Amerika bei.</p>
+                <img class="furtherarrow" src="Parallax%20New_files/right-arrow.png">
             </a>
-        </div>
-        <div class="storywrapper" id="redDog">
-            <a class="storypart slide-to-right clickable" href="html/chaptercloseup.html">
-                <h2>Acid Tests</h2>
-                <p></p>
-                <img class="furtherarrow" src="img/Icons/right-arrow.png" />
+        <audio src="Parallax%20New_files/Bubbles.wav"></audio></div>
+        <div class="storywrapper" id="redDog" data-year="1965" style="background-repeat: no-repeat; background-size: cover; background-attachment: fixed; background-image: url(&quot;../img/ChapterBackgrounds/TheRedDogExperience.svg&quot;);">
+            <a class="storypart slide-to-right clickable" href="http://127.0.0.1:5500/html/chaptercloseup.html">
+                <h2>The Red Dog Experience</h2>
+                <p>In einem umgebauten Saloon in Nevada spielten 
+berühmte Hippie Bands wie "Big Brother and the Holding Company" zum 
+ersten mal regelmässig. Die Auftritter waren im Rahmen einer "Peyote 
+Zeremonie", eine psychedelische Erfahrung mit Drogen, Musik und 
+Lichtshows. Diese Zeremonien wurden unter dem Namen "The Red Dog 
+Experience" abgehalten.</p>
+                <img class="furtherarrow" src="Parallax%20New_files/right-arrow.png">
             </a>
-        </div>
-        <div class="storywrapper" id="woodstock">
-            <a class="storypart story-right clickable" href="html/chaptercloseup.html">
-                <h2>float Right</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum deserunt assumenda corporis aut
-                    omnis incidunt alias quasi numquam. Velit recusandae sunt assumenda eaque aliquid fugiat
-                    voluptatibus provident optio deserunt ratione.</p>
-                <img class="furtherarrow" src="img/Icons/right-arrow.png" />
+        <audio src="Parallax%20New_files/BigBrotherHCBallAndChain.mp3"></audio></div>
+        <div class="storywrapper" id="woodstock" data-year="1969" style="background-repeat: no-repeat; background-size: auto 100%; background-position: center center; background-attachment: fixed; background-image: url(&quot;../img/ChapterBackgrounds/Woodstock.svg&quot;);">
+            <a class="storypart story-right clickable" href="http://127.0.0.1:5500/html/chaptercloseup.html">
+                <h2>Woodstock Festival</h2>
+                <p>Die "Woodstock Music &amp; Art Fair" war ein 
+Musikfestival vom 15-18 August 1969. Obwohl es ursprünglich nur für 
+50'000 Personen geplant war, wird die Besucherzahl auf circa 400'000 
+geschätzt. Genaue Zahlen sind unmöglich zu ermitteln, denn die 
+Organisatoren waren auf eine solche Masse von Hippies nicht vorbreitet 
+und gaben die Eingangskontrollen auf. Viele grosse Namen der Musikszene 
+spielten auf dem Festival, wegen Regen und verstopften Strassen waren 
+sie aber viel zu spät. Jefferson Airplane zum Beispiel, spielte erst um 8
+ Uhr morgens. Trotz dieser Schwierigkeiten gilt Woodstock als eines der 
+wichtigsten kulturellen Ereignisse der 60er Jahre und verlief ohne 
+grössere Probleme.</p>
+                <img class="furtherarrow" src="Parallax%20New_files/right-arrow.png">
             </a>
-        </div>
-        <div class="storywrapper" style="background-color: yellow;" data-year="">
-            <a class="storypart floatup clickable" href="html/chaptercloseup.html">
-                <h2>slide to left</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum deserunt assumenda corporis aut
-                    omnis incidunt alias quasi numquam. Velit recusandae sunt assumenda eaque aliquid fugiat
-                    voluptatibus provident optio deserunt ratione.</p>
-                <img class="furtherarrow" src="img/Icons/right-arrow.png" />
+        <audio src="Parallax%20New_files/StarSpangledBanner.mp3"></audio></div>
+        <div class="storywrapper" style="background-repeat: no-repeat; background-size: auto 100%; background-position: center center; background-attachment: fixed; background-image: url(&quot;../img/ChapterBackgrounds/GratefulDead.svg&quot;);" data-year="1965-95">
+            <a class="storypart floatup clickable" href="http://127.0.0.1:5500/html/chaptercloseup.html">
+                <h2>The Grateful Dead</h2>
+                <p>The Grateful Dead was nach den 60er Jahren das 
+Rückgrat der Hippiekultur. Die Band wurde 1965 von Jerry Garcia und Bob 
+Weir gegründet. Sie waren die Begleitband der Merry Pranksters, spielten
+ auf dem Woodstock Festival und veranstalteten eine Reihe von 
+Gratiskonzerten in San Francisco. Sie tourten konstant und ihre Fans, 
+die "Deadheads" folgten ihnen durchs ganze Land. Viele der Deadheads 
+waren das ganze Jahr mit der Band unterwegs und verdienten sich ihr Geld
+ durch verkauf von Shirts, Schmuck oder Kunst. So hielten die Grateful 
+Dead die Hippie Kultur lebendig. Bis 1995, als ihr Bandleader Jerry 
+Garcia starb. </p>
+                <img class="furtherarrow" src="Parallax%20New_files/right-arrow.png">
             </a>
-        </div>
+        <audio src=""></audio></div>
     </div>
-</body>
+<!-- Code injected by live-server -->
+<script type="text/javascript">
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
 
-</html>
+</body></html>

@@ -1,4 +1,4 @@
-/*import { Chapter } from "./chapter.js";
+import { Chapter } from "./chapter.js";
 
 window.addEventListener("DOMContentLoaded", (event) => {
     fetchChaptersJson();
@@ -64,4 +64,4 @@ function fillHTMLChapter(storyWrapper, data) {
     for (let text of texts){
         text.textContent = data.text;
     }
-}*/
+}
