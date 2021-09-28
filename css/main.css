@@ -1,66 +1,36 @@
 :root{
-    --backgroundcolor: rgb(55, 68, 97);
-    --headersize: 33vh;
+    --headersize: 50vh;
 }
 
 body, html{
-    overflow: hidden;
+
+    overflow-y: none;
     margin: 0;
     padding: 0;
 }
 
-.background{
-    border: 1px black;
-    height: max-content;
-    background-color: var(--backgroundcolor);
-}
 
-.parallax{
-    perspective: 1px;
+.scrollsnap-container{
     height: 100vh;
+    overflow-y: scroll;
     overflow-x: hidden;
-    overflow-y: auto;
-}
-
-.parallax-layer{
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-}
-
-.parallax-layer-back{
-    transform: translateZ(-1px) scale(2);
-    z-index: -1;
-}
-
-.img-fixed{
-    background-image: url("../img/background.jpg");
-    background-attachment: local;
-    background-position: center;
-    background-repeat: no-repeat;
-
-    height: var(--headersize);
-}
-
-#headerspacer{
-    height: var(--headersize);
-}
-
-.parallax__group {
-    transform: translate3d(700px, 0, -800px) rotateY(30deg);
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
 }
 
 .storywrapper{
     font-size: 1rem;
-    height: 33vh;
+    height: 100vh;
     width: 100vw;
+    scroll-snap-align: center;
+    position: relative;
+    padding: 1px;
 }
 
 .storypart{
+    z-index: 2;
     border-radius: 5px;
-    background-color: rgba(154, 158, 150, 0.7);
+    background-color: rgba(255, 255, 255, 0.6);
     width: 51%;
     transition: all 0.7s;
     padding: 0.5em 1em 0.5em 1em;
@@ -71,69 +41,143 @@ body, html{
 }
 
 .story-right{
+    float: right;
+}
+
+.slide-to-right{
     float: left;
 }
 
-.story p{
-    margin-left: 1em;
+.slide-to-left{
+    float: right;
 }
 
-.clickable{
-    background-color: rgba(0,0,0,0.3);
+.floatup, .floatdown {
+    float: left;
+    width: 50vw;
 }
 
-.clickable:hover{
-    border-radius: 5px;
-    transition: all 0.5s;
-    transform: scale(105%);
+.floatup {
+    position: absolute; 
+    bottom: 0%;
 }
 
-.clickable a{
-    display: block;
-    width: 100%;
-    height: 100%;
-    color: white;
-    text-decoration: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+p, h3, a{
+    font-family: "Roboto", sans-serif;
 }
 
 .titlewrapper{
     display: flex;
-    justify-content: center;
-    justify-items: center;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    height: 100vh;
+    scroll-snap-align: center;
 }
 
 h1{
-    font-size: 4rem;
-    color: white;
+    font-family: 'Shrikhand', cursive;
+    align-self: center;
+    font-size: 8rem;
+    align-self: center;
 }
+
 h2{
+    font-family: 'Shrikhand', cursive;
     font-size: 3rem;
 }
 
-#headerdecowrapper{
+.scrollprompt{
+    align-self: center;
+}
+
+#yeardisplay {
+    position: fixed;
+    right: 0;
+    top: 0;
+    font-size: 3rem;
+    z-index: 1;
+    height: fit-content;
+    width: fit-content;
+    margin: 2rem;
+    margin-top: 0.5rem;
+}
+
+#totop{
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    margin: 2rem;
+    z-index: 1;
+    height: 3rem;
+    width: 3rem;
+}
+
+.menu{
+    align-self: flex-start;
     display: flex;
-    transform: translateY(-10vh);
+    flex-direction: column;
+    margin-top: 2rem;
+    margin-right: 1rem;
+    margin-left: auto;
 }
 
-.headerdeco1{
-    background-color: var(--backgroundcolor);
-    float: left;
-    width: 25vw;
-    height: 25vw;
-    border-radius: 100%;
-    border: 1px black;
+#menubtn {
+    align-self: flex-end;
+    height: 2rem;
+    width: 2rem;
+    transition: all 0.7s;
 }
 
-.headerdeco2{
-    background-color: var(--backgroundcolor);
-    float: left;
-    width: 25vw;
-    height: 25vw;
-    transform: rotate(45deg);
-    border: 1px black;
+#menuItems{
+    margin-top: 0.2rem;
+    list-style-type: none;
+    font-family: "Roboto", sans-serif;
+    font-weight: 700; 
+    font-size: 1.5rem;
+    text-align: right;
+    transition: all 0.7s;
 }
 
+a:link, a:visited{
+    color: black;
+    text-decoration: none;
+}
 
+#burgericon{
+    position: static;
+    height: 2rem;
+    width: 2rem;
+}
+
+.furtherarrow {
+    float: right;
+    margin-right: 1em;
+    height: 2vh;
+    width: 2vh;
+}
+
+.furtherarrow:hover{
+    transition: all 0.3s;
+    transform: scale(110%);
+}
+
+.clickable{
+    color: black;
+    text-decoration: none;
+}
+
+.backgroundimg{
+    position: relative;
+    z-index: -1;
+    height: 100%;
+    min-width: 100%;
+    align-self: flex-start;
+}
+
+#titleScreen {
+    background-image: url("../img/ChapterBackgrounds/Title.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

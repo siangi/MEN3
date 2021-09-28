@@ -1,0 +1,40 @@
+{
+    "chapters": [
+        {
+            "title": "Owsley Stanley stellt zum ersten Mal LSD her",
+            "text": "Owsley Stanley war nicht die erste Person, die LSD herstellte, aber er war einer der Hauptproduzenten für die Hippiesezene in Kalifornien. Seine Karriere als Untergrundchemiker begann 1963 während des Studiums an der University of Cailfornia in Berkeley",
+            "year": "1963",
+            "backgroundcss": "background-repeat: no-repeat;background-size: cover;background-attachment: fixed;background-image: url(\"../img/ChapterBackgrounds/Owsley.svg\");",
+            "soundpath": "../sounds/Bus.wav"
+        },
+        {
+            "title": "Die Merry Pranksters Tour",
+            "text": "Die beiden Autoren Ken Keasey (One flew over the Cuckoo's Nest) und Neal Cassady beschlossen 1964 mit, dass sie von Kalifornien zur Weltausstellung in New York fahren wollten, 13 andere Personen schlossen sich ihnen an. Die Gruppe nannte sich die \"Merry Pranksters\" (fröhliche Spassvögel). Sie kauften sie sich einen Schulbus, malten diesen wild an und fuhren einmal quer durch die Vereinigten Staaten. Auf dem Weg veranstalten sie die \"Kool-Aid Acid Tests\". Partys, bei denen man am Eingang einen Becher Kool-Aid gemischt mit LSD bekam. Diese trugen massgeblich zur Verbreitung der Hippie-Kultur und Musik in Amerika bei.",
+            "year": "1964",
+            "backgroundcss": "background-repeat: no-repeat;background-size: auto 100%;background-position: right;background-attachment: fixed;background-image: url(\"../img/ChapterBackgrounds/SchoolBus.svg\");",
+            "soundpath": "../sounds/Bubbles.wav"
+        },
+        {
+            "title": "The Red Dog Experience",
+            "text": "In einem umgebauten Saloon in Nevada spielten berühmte Hippie Bands wie \"Big Brother and the Holding Company\" zum ersten mal regelmässig. Die Auftritter waren im Rahmen einer \"Peyote Zeremonie\", eine psychedelische Erfahrung mit Drogen, Musik und Lichtshows. Diese Zeremonien wurden unter dem Namen \"The Red Dog Experience\" abgehalten.",
+            "year": "1965",
+            "backgroundcss": "background-repeat: no-repeat;background-size: cover;background-attachment: fixed;background-image: url(\"../img/ChapterBackgrounds/TheRedDogExperience.svg\");",
+            "soundpath": "../sounds/BigBrotherHCBallAndChain.mp3"
+        },
+        {
+            "title": "Woodstock Festival",
+            "text": "Die \"Woodstock Music & Art Fair\" war ein Musikfestival vom 15-18 August 1969. Obwohl es ursprünglich nur für 50'000 Personen geplant war, wird die Besucherzahl auf circa 400'000 geschätzt. Genaue Zahlen sind unmöglich zu ermitteln, denn die Organisatoren waren auf eine solche Masse von Hippies nicht vorbreitet und gaben die Eingangskontrollen auf. Viele grosse Namen der Musikszene spielten auf dem Festival, wegen Regen und verstopften Strassen waren sie aber viel zu spät. Jefferson Airplane zum Beispiel, spielte erst um 8 Uhr morgens. Trotz dieser Schwierigkeiten gilt Woodstock als eines der wichtigsten kulturellen Ereignisse der 60er Jahre und verlief ohne grössere Probleme.",
+            "year": "1969",
+            "backgroundcss": "background-repeat: no-repeat;background-size: auto 100%;background-position: center;background-attachment: fixed;background-image: url(\"../img/ChapterBackgrounds/Woodstock.svg\");",
+            "soundpath": "../sounds/StarSpangledBanner.mp3"
+        },
+        {
+            "title": "The Grateful Dead",
+            "text": "The Grateful Dead was nach den 60er Jahren das Rückgrat der Hippiekultur. Die Band wurde 1965 von Jerry Garcia und Bob Weir gegründet. Sie waren die Begleitband der Merry Pranksters, spielten auf dem Woodstock Festival und veranstalteten eine Reihe von Gratiskonzerten in San Francisco. Sie tourten konstant und ihre Fans, die \"Deadheads\" folgten ihnen durchs ganze Land. Viele der Deadheads waren das ganze Jahr mit der Band unterwegs und verdienten sich ihr Geld durch verkauf von Shirts, Schmuck oder Kunst. So hielten die Grateful Dead die Hippie Kultur lebendig. Bis 1995, als ihr Bandleader Jerry Garcia starb. ",
+            "year": "1965-95",
+            "backgroundcss": "background-repeat: no-repeat;background-size: auto 100%;background-position: center;background-attachment: fixed;background-image: url(\"../img/ChapterBackgrounds/GratefulDead.svg\");",
+            "soundpath": ""
+        }
+
+    ]
+}
