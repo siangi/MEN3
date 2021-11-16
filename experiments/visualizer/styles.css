@@ -3,30 +3,36 @@ body{
     padding: 0;
     height: 100vh;    
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-content: center; 
+    background-color: lightgreen;
 }
-
-.textField{
-    display: flex;
-    height: 100%;
-    width: 25%;
-    background-color: rebeccapurple;
-}
-
 
 #performanceContainer{
-    height: 100%;
+    position: absolute;
+    z-index: 1;
+    height: 50%;
     width: 50%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-self: center;
+    align-self: center;
+}
+
+#performance{
+    /* width: 50%; */
+    /* margin-left: auto; */
+}
+
+#visualizer{
+    position: absolute;
+    z-index: -1;
 }
 
 .visualizerText{
-    --size: 3em;
-    float: right;
-    font-size: var(--size);
+    z-index: 0;
+    right: 50%;
+    font-size: 2em;
     font-family: "JMH Psychedelic Caps";
 }
