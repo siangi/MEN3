@@ -30,59 +30,28 @@ function createLoopForLetters(text){
     let letters = [];
     
     for (let idx = 0; idx < text.length; idx++){
-        let newLetter = `<text x="10" y="10" id="letter${[idx]}" class="visualizerText">${text[idx]}</text>`
+        let newLetter = `<text x="200" y="200" id="letter${[idx]}" class="visualizerText">${text[idx]}</text>`
         visSVG.innerHTML += newLetter;
         letters.push(document.querySelector("#letter" + idx))    
     }
         console.log(letters);
         gsap.to(".visualizerText", 
         {
-            duration: 5, 
+            duration: 30, 
             motionPath:
             {
                 path:"#rectPath",
                 align:"#rectPath",
                 autoRotate:true,
                 alignOrigin: [0.5, 0.5],
-                start: 0
             }, 
             stagger:{
-                each: 0.12,
+                each: -0.6,
                 repeat: -1
             },
             ease: "none",   
             repeat: -1
         }, 0);
-
-        // gsap.to("#letter1", 
-        //     {
-        //         duration: 5, 
-        //         motionPath:
-        //         {
-        //             path:"#rectPath",
-        //             align:"#rectPath",
-        //             autoRotate:true,
-        //             alignOrigin: [0.5, 0.5],
-        //             start: 0.1
-        //         }, 
-        //         ease: "none",   
-        //         repeat: -1
-        //     }, 0);
-
-        // gsap.to("letter2", 
-        //     {
-        //         duration: 5, 
-        //         motionPath:
-        //         {
-        //             path:"#rectPath",
-        //             align:"#rectPath",
-        //             autoRotate:true,
-        //             alignOrigin: [0.5, 0.5],
-        //             start: 0.2
-        //         }, 
-        //         ease: "none",   
-        //         repeat: -1
-        //     }, 0);
 }
 
 function updateVisualization(){
@@ -90,7 +59,7 @@ function updateVisualization(){
     let dataArray = new Uint8Array(analyser.frequencyBinCount);
     analyser.getByteTimeDomainData(dataArray);
     let scaleFact = scaleTo(dataArray[60], 128, 132, 1, 1.2)  
-    gsap.to(".visualizerText", {scale: scaleFact, duration: 0.1}); 
+    gsap.to(".visualizerText", {scale: scaleFact, duration: 0.3}); 
 }
 
 function scaleTo (number, inMin, inMax, outMin, outMax) {

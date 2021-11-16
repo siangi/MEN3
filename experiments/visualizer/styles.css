@@ -1,3 +1,8 @@
+@font-face {
+    font-family: JMH Psychedelic CAPS;
+    src: url('JMH\ Psychedelic\ CAPS.otf');
+}
+
 body{
     margin: 0;
     padding: 0;
@@ -6,7 +11,7 @@ body{
     flex-direction: column;
     justify-content: center;
     align-content: center; 
-    background-color: lightgreen;
+    background-color:rebeccapurple;
 }
 
 #performanceContainer{
@@ -18,6 +23,8 @@ body{
     flex-direction: column;
     justify-self: center;
     align-self: center;
+    justify-content: center;
+    align-content: center;
 }
 
 #performance{
@@ -28,11 +35,13 @@ body{
 #visualizer{
     position: absolute;
     z-index: -1;
+    
 }
 
 .visualizerText{
     z-index: 0;
     right: 50%;
-    font-size: 2em;
+    font-size: 1em;
     font-family: "JMH Psychedelic Caps";
+    fill: red;
 }
