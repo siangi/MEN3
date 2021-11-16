@@ -2,11 +2,13 @@
 
 let audioCtx;
 let analyser;
+let simultTimeline;
 
 
 window.addEventListener("load", (event) => {
     gsap.registerPlugin(MotionPathPlugin);
-    createVisualizer();
+    simultTimeline = gsap.timeline();
+    createVisualizer();    
   });
   
 
@@ -15,18 +17,16 @@ function createVisualizer(){
     let source = audioCtx.createMediaElementSource(document.querySelector('#performance'));
     analyser = audioCtx.createAnalyser();
     source.connect(analyser);
-    analyser.fftSize = 128;
+    analyser.fftSize = 32;
     analyser.connect(audioCtx.destination);
     updateVisualization();
 
     MotionPathPlugin.convertToPath("#rectPath", true);
-    createLoopForLetters("star spangled banner")
+    createLoopForLetters("star spangled banner 18.08.69 Woodstock")
 }
 
 function createLoopForLetters(text){
     let visSVG = document.querySelector("#visualizer");
-    let offset = 1/text.length;
-    let simultTimeline = gsap.timeline({repeat: -1});
     let letters = [];
     
     for (let idx = 0; idx < text.length; idx++){
@@ -34,10 +34,10 @@ function createLoopForLetters(text){
         visSVG.innerHTML += newLetter;
         letters.push(document.querySelector("#letter" + idx))    
     }
-        console.log(letters);
-        gsap.to(".visualizerText", 
+
+    simultTimeline.to(".visualizerText", 
         {
-            duration: 30, 
+            duration: 25, 
             motionPath:
             {
                 path:"#rectPath",
@@ -54,11 +54,30 @@ function createLoopForLetters(text){
         }, 0);
 }
 
+function pulse(){
+    let pulsetl = gsap.timeline();
+    pulsetl.fromTo("#performance", {boxShadow: "0px 0px 3vw 0px rgba(245,183,39,0.1)"}, 
+        {boxShadow: "0px 0px 3vw 5vw rgba(245,183,39,0.05)", duration: 0.7, ease:"expo"})
+    pulsetl.to("#performance", {boxShadow: "0px 0px 3vw 5vw rgba(245,183,39,0)", duration: 0.7, ease:"none"}, )
+}
+
 function updateVisualization(){
     requestAnimationFrame(updateVisualization);
     let dataArray = new Uint8Array(analyser.frequencyBinCount);
     analyser.getByteTimeDomainData(dataArray);
-    let scaleFact = scaleTo(dataArray[60], 128, 132, 1, 1.2)  
+    let scaleFact = scaleTo(dataArray[8], 115, 142, 0.6, 1.7)  
+    if (dataArray[8] > 134){
+        pulse();
+        gsap.to(simultTimeline, {timeScale:2.5, duration: 0.7})
+        // simultTimeline.timeScale(2.5)
+    } else if (dataArray[8] <= 121){
+        gsap.to(simultTimeline, {timeScale:1, duration: 0.7})
+        // simultTimeline.timeScale(1);
+    } else if (dataArray[8] <= 120){
+        // gsap.to(simultTimeline, {timeScale:0.7, duration: 0.7})
+        // simultTimeline.timeScale(0.75);
+    }
+    
     gsap.to(".visualizerText", {scale: scaleFact, duration: 0.3}); 
 }
 

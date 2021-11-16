@@ -17,7 +17,7 @@ body{
 #performanceContainer{
     position: absolute;
     z-index: 1;
-    height: 50%;
+    /* height: 50%; */
     width: 50%;
     display: flex;
     flex-direction: column;
@@ -43,5 +43,5 @@ body{
     right: 50%;
     font-size: 1em;
     font-family: "JMH Psychedelic Caps";
-    fill: red;
+    fill:rgba(245,183,39,1);
 }
