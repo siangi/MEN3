@@ -16,9 +16,10 @@ body{
 
 #performanceContainer{
     position: absolute;
-    z-index: 1;
+    z-index: -1;
     /* height: 50%; */
-    width: 50%;
+    width: 100%;
+    /* height: 100%; */
     display: flex;
     flex-direction: column;
     justify-self: center;
@@ -34,8 +35,8 @@ body{
 
 #visualizer{
     position: absolute;
-    z-index: -1;
-    
+    z-index: 1;
+    /* mix-blend-mode: luminosity; */
 }
 
 .visualizerText{
@@ -44,4 +45,11 @@ body{
     font-size: 1em;
     font-family: "JMH Psychedelic Caps";
     fill:rgba(245,183,39,1);
+    
+}
+.smallperformance{
+    position: absolute;
+    z-index: 5;
+    width: 50%
+    
 }

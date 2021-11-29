@@ -14,11 +14,16 @@
 <body>
     <svg id="visualizer" width="100%" height="100%" viewBox ="0 0 176 99">
         <rect id="rectPath" x="8" y="4.5" width="160" height="90" rx="20" ry="20" stroke="none" stroke-dasharray="2, 2" fill="none"></rect>
+        <line stroke="black" class="calmLines" x1="0" y1="10" x2="176" y2="10"></line>
+        <line stroke="red" class="calmLines" x1="0" y1="89" x2="176" y2="89"></line>
     </svg>
     <div id="performanceContainer">
-        <video controls id="performance">
+        <video id="performance">
             <source src="starSpangledBannerCropped.mp4" type="video/mp4">
         </video>
     </div>
+    <!-- <video controls id="smallperformance">
+        <source src="starSpangledBannerCropped.mp4" type="video/mp4">
+    </video> -->
 </body>
 </html>
