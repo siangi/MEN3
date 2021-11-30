@@ -12,14 +12,13 @@ body{
     justify-content: center;
     align-content: center; 
     background-color:rebeccapurple;
+    overflow: hidden;
 }
 
 #performanceContainer{
     position: absolute;
     z-index: -1;
-    /* height: 50%; */
     width: 100%;
-    /* height: 100%; */
     display: flex;
     flex-direction: column;
     justify-self: center;
@@ -29,23 +28,36 @@ body{
 }
 
 #performance{
-    /* width: 50%; */
-    /* margin-left: auto; */
+    width: 100%;
 }
 
 #visualizer{
     position: absolute;
     z-index: 1;
-    /* mix-blend-mode: luminosity; */
+    mix-blend-mode: color-dodge;
 }
 
 .visualizerText{
     z-index: 0;
     right: 50%;
-    font-size: 1em;
+    font-size: 1.2em;
     font-family: "JMH Psychedelic Caps";
-    fill:rgba(245,183,39,1);
-    
+}
+
+.whiteLine{
+    fill: rgba(255, 255, 255, 1);
+}
+
+.redLine{
+    fill: rgba(191, 10, 48, 1);
+} 
+
+.wildLetter{
+    fill: rgba(20, 50, 60, 1)
+}
+
+.letterLoop{
+    fill:rgba(245,183,39,1); 
 }
 .smallperformance{
     position: absolute;
