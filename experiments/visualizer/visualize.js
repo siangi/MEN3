@@ -45,9 +45,9 @@ function createVisualizer(){
                 "the land of the free",
                 "The home of the brave",
                 "the land of the free"], 0);
-    simultTimeline.add(wildTimeline, 10);
+    // flagTimeline.add(wildTimeline, 10);
     simultTimeline.add(flagTimeline, 0);
-    // simultTimeline.add(crossingHorizontalLines("star spangled banner", 0), 10);
+    // simultTimeline.add(crossingHorizontalLines("star spangled banner", 0), 0);
     // simultTimeline.add(createLoopForLetters("woodstock, 18.08.1968", 0), 10);
     console.log(simultTimeline.duration());
     updateVisualization();
@@ -224,7 +224,7 @@ function americanFlag(texts, secondsAt){
             ease: "none",
         }, secondsAt);
 
-    flagTimeline.to(".flagText", {opacity:0, duration: 2}, 10)
+    flagTimeline.to(".flagText", {opacity:0, duration: 2}, 30)
 }
 
 function crossingHorizontalLines(text, secondsAt){

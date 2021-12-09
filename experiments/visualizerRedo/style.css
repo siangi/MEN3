@@ -1,0 +1,16 @@
+.testRect{
+    height: 3em;
+    width: 3em;
+}
+
+.red{
+    background-color: red;
+}
+
+.green{
+    background-color: green;
+}
+
+.blue{
+    background-color: blue;
+}
