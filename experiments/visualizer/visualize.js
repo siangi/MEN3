@@ -3,9 +3,6 @@
 let audioCtx;
 let analyser;
 let simultTimeline;
-let wildTimeline;
-let flagTimeline;
-
 
 window.addEventListener("load", (event) => {
     gsap.registerPlugin(MotionPathPlugin);
@@ -37,18 +34,16 @@ function createVisualizer(){
     MotionPathPlugin.convertToPath(".calmLines", true);
     MotionPathPlugin.convertToPath("#rectPath", true);
     MotionPathPlugin.convertToPath(".flagPath", true);
-    lettersRunningWild("dklfjakldasjdfööasfösddfaöfjsafsakfö");
-    americanFlag(["god Bless USA", 
+    simultTimeline.add(createLoopForLetters("woodstock, 18.08.1968", 0), 10);
+    simultTimeline.add(lettersRunningWild("dklfjakldasjdfööasfösddfaöfjsafsakfö"), 5);
+    simultTimeline.add(americanFlag(["god Bless USA", 
                 "Vietnam War", 
                 "Chicago Riots", 
                 "The home of the brave", 
                 "the land of the free",
                 "The home of the brave",
-                "the land of the free"], 0);
-    // flagTimeline.add(wildTimeline, 10);
-    simultTimeline.add(flagTimeline, 0);
-    // simultTimeline.add(crossingHorizontalLines("star spangled banner", 0), 0);
-    // simultTimeline.add(createLoopForLetters("woodstock, 18.08.1968", 0), 10);
+                "the land of the free"], 0), 0);
+    // simultTimeline.add(crossingHorizontalLines("star spangled banner", 0), 4);
     console.log(simultTimeline.duration());
     updateVisualization();
 }
@@ -70,7 +65,7 @@ function createSVGLetters(text, classes, reverseText = false){
 // creates the text letters and sends them running around the screen wildly
 function lettersRunningWild(text){
     createSVGLetters(text, "visualizerText wildLetter");
-    wildTimeline = gsap.timeline();
+    let wildTimeline = gsap.timeline();
 
     let svg = document.querySelector("#visualizer");
     svgBounds = svg.viewBox.baseVal;
@@ -98,7 +93,7 @@ function lettersRunningWild(text){
 function americanFlag(texts, secondsAt){
     const REPETITIONS = 3
     const DURATION = 10;
-    flagTimeline = gsap.timeline();
+    let flagTimeline = gsap.timeline();
     for (let lineIdx = 0; lineIdx < 7; lineIdx++){
         if (lineIdx % 2 == 1){
             createSVGLetters(texts[lineIdx], "visualizerText flagText whiteLine flagLine" + lineIdx, true);
@@ -225,6 +220,8 @@ function americanFlag(texts, secondsAt){
         }, secondsAt);
 
     flagTimeline.to(".flagText", {opacity:0, duration: 2}, 30)
+
+    return flagTimeline;
 }
 
 function crossingHorizontalLines(text, secondsAt){

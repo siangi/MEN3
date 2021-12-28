@@ -45,7 +45,8 @@ body{
 }
 
 .whiteLine{
-    fill: rgba(255, 255, 255, 1);
+    /* fill: rgba(255, 255, 255, 1); */
+    fill: rgba(245,183,39,1);
 }
 
 .redLine{

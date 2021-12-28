@@ -14,3 +14,15 @@
 .blue{
     background-color: blue;
 }
+
+.violet{
+    background-color: violet;
+    opacity: 0.1;
+    display: block;
+}
+
+#visualizer{
+    position: absolute;
+    top:0;
+    left: 0;
+}
