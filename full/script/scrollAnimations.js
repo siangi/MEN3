@@ -1,6 +1,7 @@
 window.onload = () => {
     gsap.registerPlugin(ScrollTrigger)
     setupDeathSectAnimations();
+    pinSectionTitle();
 }
 
 // make this applicable for all
@@ -13,5 +14,14 @@ function setupDeathSectAnimations(){
             end: "top top",
             scrub: true
         },
+    })
+}
+
+function pinSectionTitle(){
+    ScrollTrigger.create({
+        trigger: "#beginningSect",
+        pin: ".subtitlePin",
+        start: "top top",
+        end: "bottom bottom"
     })
 }

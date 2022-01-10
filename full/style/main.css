@@ -13,6 +13,17 @@
     src: url("../resources/fonts/JMH-Psychedelic-CAPS.otf")
 }
 
+@media (max-width: 1299px){
+    :root{
+        --spacer-height: 25vh;
+    }
+}
+@media (min-width: 1300px){
+    :root{
+        --spacer-height: 17vh;
+    }
+}
+
 h1, h2, h3, h4, h5, h6 {
     font-family: "elizafat";
 }
@@ -35,14 +46,13 @@ body{
 }
 
 .section{
+    display: flex;
     width: 100%;
     height: 100vh;
-    display: flex;
-    flex-direction: row;
 }
 
 .section.long{
-    height: min-content;
+    height: fit-content;
 }
 
 .textContainer{
@@ -53,7 +63,7 @@ body{
     display: flex;
     flex-direction: column;
     width: 35vw;
-    height: 100%;
+    height: fit-content;
 }
 
 .leftColumn{
@@ -80,30 +90,54 @@ body{
 .imgFilterContainer{
     float: right;
 }
-
-#beginningSect{
-    background-color: #2DB494;
-    color: #FFFFFF;
-    height: 220vh;
+.spacerHeight05{
+    min-height: calc(var(--spacer-height)*0.5);
+    width: 100%;
+}
+.spacerHeight1{
+    min-height: calc(var(--spacer-height));
+    width: 100%;
 }
 
-#beginningSect h2{
-    position: fixed;
-    z-index: 3;
-    transform-origin: 0% 0%;
-    transform: rotate(-90deg) translateX(-35vh) translateY(4vw);
-    color: #540D6E;
+.spacerHeight2{
+    min-height: calc(var(--spacer-height)*2);
+    width: 100%;
+}
+
+.spacerHeight3{
+    min-height: calc(var(--spacer-height)*3);
+    width: 100%;
+}
+
+#beginningSect{
+    flex-direction: row;
+    background-color: #F4F3AA;
+    color: #000000;
+    height: calc(var(--spacer-height)*16);
 }
 
 #beginningSect p{
-    background-color: rgba(48, 161, 135, 0.4);
-    padding: 0.5em;
-    border-radius: 0.4em;
+    background-color: rgba(244, 243, 170, 0.4);
+    /* padding: 0.4em; */
+    box-shadow: 0 0 0.18em 0.5em rgba(244, 243, 170, 0.40);
 }
+
+#beginningSect h2{
+    position: absolute;
+    z-index: 3;
+    transform-origin: 0% 0%;
+    transform: rotate(-90deg) translateX(-55vh) translateY(4vw);
+    color: #810522;
+}
+
 
 #beginningSect iframe{
     width: 100%;
     height: 35vh;
+}
+
+#beginningSect img{
+    width: auto;
 }
 
 #beginningSect .wideImg{
@@ -111,46 +145,33 @@ body{
     height: auto;
     display: flex;
     align-self: center;
-    margin-top: 20%;
 }
 
 #beginningSect .firstImg{
-    width: 60%;
-    height: auto;
-    margin-left: auto;
-    margin-top: 40%;
+    margin-right: auto;
 }
 
-#beginningSect .firstParagraph{
-    margin-top: 5%;
-}
-
-#beginningSect .secondParagraph{
-    margin-top: 20%;
-}
-
-#beginningSect .thirdParagraph{
-    margin-top: 40%;
-}
-
-#beginningSect .secondVid{
-    margin-top: 100%;
+#beginningSect .secondImg{
+    margin-left: 0;
+    margin-right: auto;
 }
 
 .rainbowSwoosh{
-    
     height: 100%;
-    width: auto;
     margin-right: 0;
     margin-left: auto;
 }
 
+#suproOzark{
+    transform-origin: 0.0 0.0;
+    transform: rotate(45deg);
+}
+
 #beginningSect .scrollImg{
     align-self: center;
-    margin-top: 20%;
     width: 50%;
     height: auto;
-    transform-origin: 0.5 0.5;
+    transform-origin: top center;
     transform: rotate(-90deg);
 }
 
@@ -158,7 +179,6 @@ body{
     width: 70%;
     height: auto;
     margin-left: auto;
-    margin-top: 20%;
 }
 
 #woodstockPerformance{
@@ -326,6 +346,3 @@ body{
     width: 75%;
 }
 
-svg{
-    
-}
