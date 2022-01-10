@@ -1,0 +1,331 @@
+@font-face{
+    font-family: "elizafat";
+    src: url("../resources/fonts/elizafat.regular.otf");
+}
+
+@font-face{
+    font-family: "bahnschrift";
+    src: url("../resources/fonts/bahnschrift.ttf")
+}
+
+@font-face{
+    font-family: "jmh-psychedelic-caps";
+    src: url("../resources/fonts/JMH-Psychedelic-CAPS.otf")
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "elizafat";
+}
+
+h2{
+    font-size: 5rem;
+}
+
+h3{
+    font-size: 3rem;
+}
+
+p{
+    font-family: "bahnschrift";
+}
+
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.section{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+}
+
+.section.long{
+    height: min-content;
+}
+
+.textContainer{
+    width: 45vw;
+}
+
+.column{
+    display: flex;
+    flex-direction: column;
+    width: 35vw;
+    height: 100%;
+}
+
+.leftColumn{
+    position: absolute;
+    top: 0;
+    left: 5vw;
+    z-index: 0;
+}
+
+.centerColumn{
+    position: absolute;
+    top: 0;
+    left: 35vw;
+    z-index: 1;
+}
+
+.rightColumn{
+    position: absolute;
+    top: 0;
+    left: 60vw;
+    z-index: 0;
+}
+
+.imgFilterContainer{
+    float: right;
+}
+
+#beginningSect{
+    background-color: #2DB494;
+    color: #FFFFFF;
+    height: 220vh;
+}
+
+#beginningSect h2{
+    position: fixed;
+    z-index: 3;
+    transform-origin: 0% 0%;
+    transform: rotate(-90deg) translateX(-35vh) translateY(4vw);
+    color: #540D6E;
+}
+
+#beginningSect p{
+    background-color: rgba(48, 161, 135, 0.4);
+    padding: 0.5em;
+    border-radius: 0.4em;
+}
+
+#beginningSect iframe{
+    width: 100%;
+    height: 35vh;
+}
+
+#beginningSect .wideImg{
+    width: 120%;
+    height: auto;
+    display: flex;
+    align-self: center;
+    margin-top: 20%;
+}
+
+#beginningSect .firstImg{
+    width: 60%;
+    height: auto;
+    margin-left: auto;
+    margin-top: 40%;
+}
+
+#beginningSect .firstParagraph{
+    margin-top: 5%;
+}
+
+#beginningSect .secondParagraph{
+    margin-top: 20%;
+}
+
+#beginningSect .thirdParagraph{
+    margin-top: 40%;
+}
+
+#beginningSect .secondVid{
+    margin-top: 100%;
+}
+
+.rainbowSwoosh{
+    
+    height: 100%;
+    width: auto;
+    margin-right: 0;
+    margin-left: auto;
+}
+
+#beginningSect .scrollImg{
+    align-self: center;
+    margin-top: 20%;
+    width: 50%;
+    height: auto;
+    transform-origin: 0.5 0.5;
+    transform: rotate(-90deg);
+}
+
+#beginningSect .secondImg{
+    width: 70%;
+    height: auto;
+    margin-left: auto;
+    margin-top: 20%;
+}
+
+#woodstockPerformance{
+    position: relative;
+}
+
+#performanceContainer{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    justify-content: center;
+    align-content: center;
+}
+
+
+#visualizer{
+    width: 100%;
+    height: 100%;
+    mix-blend-mode: color-dodge;
+}
+
+.visualizerText{
+    z-index: 0;
+    right: 50%;
+    font-size: 1.2em;
+    font-family: "jmh-psychedelic-caps";
+}
+
+.whiteLine{
+    fill: rgba(255, 255, 255, 1);
+}
+
+.redLine {
+    fill: rgba(191, 10, 48, 1);
+} 
+
+.wildLetter{
+    fill: rgba(190, 50, 60, 1);
+}
+
+.letterLoop, .horizontalLineTop, .horizontalLineBottom{
+    fill:rgba(245,183,39,1); 
+}
+
+#downfall{
+    flex-direction: column;
+    background-color: #0F090F;
+}
+
+#downfall h2{
+    display: flex;
+    align-self: center;
+    color:  #E65427;
+}
+
+.downfallSubSect{
+    width: 86%;
+    height: 35vh;
+    display: flex;
+    flex-direction: row;
+    padding: 7%;
+}
+
+#subSectBoG{
+    color: #E65427;
+}
+
+#subSectBoG img{
+    max-width: 33vw;
+    height: auto;
+}
+
+#subSectBoG .textContainer{
+    padding-left: 2rem;
+}
+
+#subSectEuroTour{
+    color: #F4F3AA;
+    text-align: right;
+    flex-direction: row-reverse;
+}
+
+#subSectEuroTour img{
+    position: relative;
+    z-index: 0;
+    max-width: 33vw;
+    height: auto;
+    filter: url(#yellowTinge);
+}
+
+#subSectEuroTour .imgFilter{
+    position: relative;
+    background-color: #F4F3AA;
+    opacity: 0.3;
+    max-width: 33vw;
+    height: 100px;
+    z-index: 1;
+}
+
+#subSectEuroTour .textContainer{
+    padding-right: 2rem;
+}
+
+#subSectFerham{
+    height: 100vh;
+    width: 75vw;
+    flex-direction: column;
+    align-items: center;
+    color: #FDF9F8;
+}
+
+#subSectFerham img{
+    height: 85vh;
+    width: 122.5vh;
+    width: auto;
+}
+
+#subSectFerham .backgroundHolder{
+    height: 65vh;
+    width: 75vw;
+    background-image: url("../resources/img/IsleOfWight.png");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+#subSectFerham .textContainer{
+    width: 100%;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+#subSectFerham p, #subSectFerham h3{
+    margin: 0.4em;
+    
+    display: inline;
+}
+#subSectFerham p{
+    margin: 0.4em;
+    margin-left: 1.5em;
+    max-width: 60%;
+}
+
+#deathSect{
+    background-color: #0F090F;
+    color: white;
+    text-align: center;
+    line-height: 1.6;
+    font-size: 1.5em;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+ 
+#deathSect p{
+    width: 75%;
+}
+
+svg{
+    
+}

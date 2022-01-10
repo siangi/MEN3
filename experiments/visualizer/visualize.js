@@ -1,5 +1,3 @@
-
-
 let audioCtx;
 let analyser;
 let simultTimeline;
@@ -34,18 +32,19 @@ function createVisualizer(){
     MotionPathPlugin.convertToPath(".calmLines", true);
     MotionPathPlugin.convertToPath("#rectPath", true);
     MotionPathPlugin.convertToPath(".flagPath", true);
-    simultTimeline.add(createLoopForLetters("woodstock, 18.08.1968", 0), 10);
-    simultTimeline.add(lettersRunningWild("dklfjakldasjdfööasfösddfaöfjsafsakfö"), 5);
+  
+    simultTimeline.add(crossingHorizontalLines("star spangled banner", 35), 0);
     simultTimeline.add(americanFlag(["god Bless USA", 
-                "Vietnam War", 
-                "Chicago Riots", 
-                "The home of the brave", 
-                "the land of the free",
-                "The home of the brave",
-                "the land of the free"], 0), 0);
-    // simultTimeline.add(crossingHorizontalLines("star spangled banner", 0), 4);
-    console.log(simultTimeline.duration());
-    updateVisualization();
+    "Vietnam War", 
+    "Chicago Riots", 
+    "The home of the brave", 
+    "the land of the free",
+    "The home of the brave",
+    "the land of the free"], 30), 35);
+    simultTimeline.add(lettersRunningWild("Vietnam WarChicagoRiotsThehomeofthelandoffree", 30), 65);
+    
+    // simultTimeline.add(createLoopForLetters("woodstock, 18.08.1968", 0), 10);
+    // updateVisualization();
 }
 
 function createSVGLetters(text, classes, reverseText = false){
@@ -58,12 +57,12 @@ function createSVGLetters(text, classes, reverseText = false){
 
     for (let idx = 0; idx < letters.length; idx++){
         let newLetter = `<text x="-20" y="-20" class="${classes}">${letters[idx]}</text>`
-        visSVG.innerHTML += newLetter;   
+        visSVG.insertAdjacentHTML('beforeend', newLetter);   
     }
 }
 
 // creates the text letters and sends them running around the screen wildly
-function lettersRunningWild(text){
+function lettersRunningWild(text, duration){
     createSVGLetters(text, "visualizerText wildLetter");
     let wildTimeline = gsap.timeline();
 
@@ -72,27 +71,28 @@ function lettersRunningWild(text){
     letters = document.getElementsByClassName("wildLetters");
     console.log(svgBounds);
 
-    wildTimeline.set(".wildLetter",
-    {
-        x: () => Math.round(svgBounds.width * Math.random()), 
-        y: () => Math.round(svgBounds.height * Math.random()), 
-    });
+    // wildTimeline.set(".wildLetter",
+    // {
+    //     x: () => Math.round(svgBounds.width * Math.random()), 
+    //     y: () => Math.round(svgBounds.height * Math.random()), 
+    // });
     repetitionTimeline = gsap.timeline({repeat: 100, repeatRefresh:true});
-    repetitionTimeline.to(".wildLetter", 
+    repetitionTimeline.to(".flagText", 
     {
-        x: () => Math.round(svgBounds.width * Math.random()), 
-        y: () => Math.round(svgBounds.height * Math.random()), 
+        x: () => Math.round(window.innerWidth * Math.random() * 0.2), 
+        y: () => Math.round(window.innerHeight * Math.random()* 0.2), 
         duration: 0.5,  
         ease: "none"      
     });
     wildTimeline.add(repetitionTimeline);
-    
+    wildTimeline.to(".flagText", {opacity:0, duration: 2, onComplete:function () {wildTimeline.pause()}}, duration)
     return wildTimeline;
 }
 
-function americanFlag(texts, secondsAt){
-    const REPETITIONS = 3
-    const DURATION = 10;
+function americanFlag(texts, duration){
+    const REPETITIONS = 3;
+    const LINE_COUNT = 7;
+
     let flagTimeline = gsap.timeline();
     for (let lineIdx = 0; lineIdx < 7; lineIdx++){
         if (lineIdx % 2 == 1){
@@ -102,129 +102,64 @@ function americanFlag(texts, secondsAt){
         }        
     }
 
+    let index = 0;
     let lines = document.getElementsByClassName("flagPath");
-    console.log(lines);
-    flagTimeline.to(".flagLine0",
-        {
-            motionPath:{
-                path: lines[0],
-                align: lines[0],
-                alignOrigin: [0.5, 0.5]
-            },
-            stagger:{
-                each: -0.75,
-                repeat: REPETITIONS,
-                end: function() {             
-                    console.log("ended stagger")
-                }
-            },
-            duration: 10,
-            ease: "none",
-            
-        }, secondsAt).then(function() { console.log("ended")});
+    for(let index = 0; index < LINE_COUNT; index++){
+        if (index % 2 == 1){
+            flagTimeline.to(".flagLine" + index,
+            {
+                
+                motionPath:{
+                    path: lines[index],
+                    align: lines[index],
+                    alignOrigin: [0.5, 0.5],
+                    start: 1,
+                    end: 0
+                },
+                stagger:{
+                    each: -0.75,
+                    repeat: REPETITIONS,
+                    end: function() {             
+                        console.log("ended stagger")
+                    }
+                },
+                duration: 10,
+                ease: "none",
+                
+            }, 0).then(function() { console.log("ended")});
+        } 
+        else {
+            flagTimeline.to(".flagLine" + index,
+            {
+                
+                motionPath:{
+                    path: lines[index],
+                    align: lines[index],
+                    alignOrigin: [0.5, 0.5]
+                },
+                stagger:{
+                    each: -0.75,
+                    repeat: REPETITIONS,
+                    end: function() {             
+                        console.log("ended stagger")
+                    }
+                },
+                duration: 10,
+                ease: "none",
+                
+            }, 0).then(function() { console.log("ended")});
 
-    flagTimeline.to(".flagLine1",
-        {
-            motionPath:{
-                path: lines[1],
-                align: lines[1],
-                alignOrigin: [0.5, 0.5],
-                start: 1,
-                end: 0,
-            },
-            stagger:{
-                each: -0.75,
-                repeat: REPETITIONS
-            },
-            duration: 10,
-            ease: "none",
-        }, secondsAt);
+        }
+    }
 
-    flagTimeline.to(".flagLine2",
-        {
-            motionPath:{
-                path: lines[2],
-                align: lines[2],
-                alignOrigin: [0.5, 0.5]
-            },
-            stagger:{
-                each: -0.75,
-                repeat: REPETITIONS
-            },
-            duration: 10,
-            ease: "none",
-        }, secondsAt);
-
-    flagTimeline.to(".flagLine3",
-        {
-            motionPath:{
-                path: lines[3],
-                align: lines[3],
-                alignOrigin: [0.5, 0.5],
-                start: 1,
-                end: 0,
-            },
-            stagger:{
-                each: -0.45,
-                repeat: REPETITIONS
-            },
-            duration: 10,
-            ease: "none",
-        }, secondsAt);
-
-    flagTimeline.to(".flagLine4",
-        {
-            motionPath:{
-                path: lines[4],
-                align: lines[4],
-                alignOrigin: [0.5, 0.5]
-            },
-            stagger:{
-                each: -0.45,
-                repeat: REPETITIONS
-            },
-            duration: 10,
-            ease: "none",
-        }, secondsAt);
-
-    flagTimeline.to(".flagLine5",
-        {
-            motionPath:{
-                path: lines[5],
-                align: lines[5],
-                alignOrigin: [0.5, 0.5],
-                start: 1,
-                end: 0,
-            },
-            stagger:{
-                each: -0.45,
-                repeat: REPETITIONS
-            },
-            duration: 10,
-            ease: "none",
-        }, secondsAt);
-    
-    flagTimeline.to(".flagLine6",
-        {
-            motionPath:{
-                path: lines[6],
-                align: lines[6],
-                alignOrigin: [0.5, 0.5],
-            },
-            stagger:{
-                each: -0.45,
-                repeat: REPETITIONS
-            },
-            duration: 10,
-            ease: "none",
-        }, secondsAt);
-
-    flagTimeline.to(".flagText", {opacity:0, duration: 2}, 30)
-
+    // after the duration we want, make the letters invisible and stop the timeline, since it is hard to 
+    // control with the stagger.
+    flagTimeline.to(".flagText", {opacity:1, duration: 0.5, onComplete:function () {flagTimeline.pause()}}, duration)
+     
     return flagTimeline;
 }
 
-function crossingHorizontalLines(text, secondsAt){
+function crossingHorizontalLines(text, duration){
     let linesTimeline = gsap.timeline();
     let lines = document.getElementsByClassName("calmLines");
     console.log(lines);
@@ -232,7 +167,7 @@ function crossingHorizontalLines(text, secondsAt){
     createSVGLetters(text, "horizontalLineTop visualizerText");
     createSVGLetters(text, "horizontalLineBottom visualizerText");
    
-    simultTimeline.to(".horizontalLineTop", 
+    linesTimeline.to(".horizontalLineTop", 
         { 
             motionPath:
             {
@@ -246,9 +181,9 @@ function crossingHorizontalLines(text, secondsAt){
             },
             duration: 10,
             ease: "none",   
-        }, secondsAt);
+        }, 0);
 
-    simultTimeline.to(".horizontalLineBottom", 
+    linesTimeline.to(".horizontalLineBottom", 
         { 
             motionPath:
             {
@@ -262,7 +197,10 @@ function crossingHorizontalLines(text, secondsAt){
             },
             duration: 10,
             ease: "none",   
-        }, secondsAt);
+        }, 0);
+    
+    linesTimeline.to(".horizontalLineTop", {opacity:0, duration: 2, onComplete:function () {linesTimeline.pause()}}, duration);
+    linesTimeline.to(".horizontalLineBottom", {opacity:0, duration: 2, onComplete:function () {linesTimeline.pause()}}, duration);
     
     return linesTimeline;
 }
@@ -287,7 +225,7 @@ function createLoopForLetters(text, secondsAt){
                 each: -0.6,
             },
             ease: "none",   
-        }, secondsAt);
+        }, 0);
     
     return loopTimeline;
 }

@@ -49,17 +49,19 @@ body{
     fill: rgba(245,183,39,1);
 }
 
-.redLine{
+.redLine {
     fill: rgba(191, 10, 48, 1);
 } 
 
 .wildLetter{
-    fill: rgba(190, 50, 60, 1)
+    fill: rgba(190, 50, 60, 1);
 }
 
-.letterLoop{
+.letterLoop, .horizontalLineTop, .horizontalLineBottom{
     fill:rgba(245,183,39,1); 
 }
+
+
 .smallperformance{
     position: absolute;
     z-index: 5;
