@@ -1,5 +1,6 @@
 let noiseElem;
 let noiseVals =[];
+backgroundColors = []
 
 window.onload = () => {
     gsap.registerPlugin(ScrollTrigger)
@@ -7,6 +8,32 @@ window.onload = () => {
     beginningSect();
     hendrixExperienceCover();
     hendrixExperienceSect();
+    titleSection();
+}
+
+function titleSection(){
+    const SUBTITLE_TIME = 4;
+    titleTimeline = gsap.timeline;
+    subtitles = document.querySelectorAll("#chapterOverview h2");
+    titleTimeline = gsap.timeline();
+
+    for(let i = 0; i < subtitles.length; i++){
+        titleTimeline.from(subtitles[i],
+            {
+                x: "100vw",
+                duration: 1,
+                onStart: () => { subtitles[i].style.display = "block"}
+            }, i*SUBTITLE_TIME);
+        
+        titleTimeline.to(subtitles[i],
+            {
+                x: "-100vw",
+                duration: 1,
+                onComplete: () => { subtitles[i].style.display = "none"}
+            }, (i+1)*SUBTITLE_TIME)
+    }
+    titleTimeline.repeat(-1);
+    titleTimeline.play();
 }
 
 function setupDeathSectAnimations(){
@@ -73,6 +100,7 @@ function beginningSect(){
 
     for(let i = 0; i < leftColumnElems.length; i++){
         gsap.from(leftColumnElems[i],{
+            x: "-50",
             transform: "rotate(-5deg)",
             duration: 0.5,
             scrollTrigger:{ 
@@ -85,6 +113,7 @@ function beginningSect(){
     
     for(let i = 0; i < rightColumnElems.length; i++){
         gsap.from(rightColumnElems[i],{
+            x: "50",
             transform: "rotate(5deg)",
             duration: 0.15,
             scrollTrigger:{ 
@@ -98,8 +127,7 @@ function beginningSect(){
         y: "2vh",
         duration: 1.2,
         yoyo: true,
-        repeat: -1,
-
+        repeat: -1
     })
 }
 
