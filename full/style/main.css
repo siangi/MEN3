@@ -190,7 +190,15 @@ body{
 #hendrixExperienceAnimation{
     background-color: #EECB00;
     color: #B91F48;
+    
+}
+
+.noiseWrapper{
+    width: 100%;
+    height: 100%;
+    display: flex;
     flex-direction: column;
+    filter: url("#noise");
 }
 
 .stars{
@@ -198,10 +206,11 @@ body{
     width: auto;
     position: relative;
     z-index: 0;
+    
 }
 
 #star1{
-    fill: #99BAB7;
+    fill: #2DB494;
 }
 
 #star2{
