@@ -187,6 +187,17 @@ body{
     display:none;
 }
 
+#titleSect .scrollImg{
+    grid-row: 3;
+    grid-column: 2;
+    align-self: center;
+    justify-self: center;
+    width: 40%;
+    height: auto;
+    transform-origin: center center;
+    transform: rotate(90deg) scaleX(-1);
+}
+
 #chapterOverview{
     display: grid;
     grid-template: 50vw 3em;
@@ -205,13 +216,11 @@ body{
 
 #beginningSect{
     flex-direction: row;
-    /* background-color: #F4F3AA; */
     color: #000000;
 }
 
 #beginningSect p{
     background-color: rgba(244, 243, 170, 0.4);
-    /* padding: 0.4em; */
     box-shadow: 0 0 0.18em 0.5em rgba(244, 243, 170, 0.40);
 }
 
@@ -253,6 +262,7 @@ body{
 #suproOzark{
     transform-origin: 0.0 0.0 !important;
     transform: rotate(45deg);
+    width: 80%
 }
 
 #beginningSect .scrollImg{
@@ -271,9 +281,7 @@ body{
 }
 
 #hendrixExperienceAnimation{
-    /* background-color: #EECB00; */
-    color: #B91F48;
-    
+    color: #B91F48;   
 }
 
 .noiseWrapper{
@@ -302,11 +310,6 @@ body{
 
 #hendrixExperienceAnimation h2{
     align-self: center;
-}
-
-#hendrixExperience{
-
-    /* background-color: #EECB00; */
 }
 
 #hendrixExperience p{
@@ -339,7 +342,6 @@ body{
     grid-template-rows: 100%;
     z-index: 0;
     overflow-y: hidden;
-    /* background-color: rgb(182, 182, 182); */
 }
 
 #woodstockIntro{
@@ -365,7 +367,6 @@ body{
     grid-column: 1;
     grid-row: 1;
     display: none;
-    /* opacity: 0;  */
     z-index: 3;
     align-self: center;
     justify-self: center;
@@ -440,7 +441,6 @@ body{
 
 #downfall{
     flex-direction: column;
-    /* background-color: #0F090F; */
 }
 
 #downfall h2{
@@ -540,7 +540,6 @@ body{
 }
 
 #deathSect{
-    /* background-color: #0F090F; */
     color: white;
     text-align: center;
     line-height: 1.6;

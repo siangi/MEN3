@@ -11,8 +11,17 @@ window.addEventListener("load", (event) => {
     introStart();
 });
 
-
+// if you click anywhere on the start screen, move the start screen upwards
+// animate the playButton to scale a bit so people will click.
 function introStart(){
+    gsap.to("#playBtn",
+    {
+        scale: 1.1,
+        duration: 1.5,
+        yoyo: true,
+        repeat: -1
+    });
+
     title = document.querySelector("#woodstockIntro");
     screen = document.querySelector("#woodstockIntro");
     console.log(title);
@@ -29,6 +38,7 @@ function introStart(){
     }
 }
 
+// move the images at the start of the video through the screen
 function createGalleryTimeline(){
     const IMAGE_LOOKAT_TIME = 6;
     images = document.querySelectorAll(".introImg");
@@ -43,6 +53,7 @@ function createGalleryTimeline(){
         galleryTimeline.to(images[i], {
             y: "-100vh",
             duration: 1.5,
+            // set the display property so the other pictures won't disturb the placement and arent visible
             onComplete: () => { images[i].style.display = "none" }
         }, (i+1)*IMAGE_LOOKAT_TIME)
     }
@@ -51,16 +62,19 @@ function createGalleryTimeline(){
 }
 
 function createVisualizer(){
+    // FFT analyzer currently not in use, would make the letters scale with the
+    // loudness. 
     // initializeFFtAnalyser();
     initializeControls();
-    
 
+    // <line> tags have to be converted to paths, or gsap will not recognize them
     MotionPathPlugin.convertToPath(".calmLines", true);
     MotionPathPlugin.convertToPath("#rectPath", true);
     MotionPathPlugin.convertToPath(".flagPath", true);
     
+    // create each part of the visualization and insert them at the right time.
     simultTimeline.add(createGalleryTimeline(), 0);
-    simultTimeline.add(crossingHorizontalLines(["jimi hendrix","star spangled banner"], 5), 30);
+    simultTimeline.add(horizontalLines(["jimi hendrix","star spangled banner"], 5), 30);
     simultTimeline.add(americanFlag(["god Bless USA", 
     "Vietnam War", 
     "Chicago Riots", 
@@ -70,8 +84,7 @@ function createVisualizer(){
     "the land of the free"], 30), 35);
     simultTimeline.add(lettersRunningWild("Vietnam WarChicagoRiotsThehomeofthelandoffree", 30), 65);
     
-    // simultTimeline.add(createLoopForLetters("woodstock, 18.08.1968", 0), 10);
-    // updateVisualization();
+    // scaleToLoudness();
 }
 
 function initializeControls(){
@@ -86,6 +99,8 @@ function initializeControls(){
     }  
 }
 
+// the timeline needs to be stopped too, so the visualization and video
+// dont go out of sync.
 function togglePlay(){
     let video = document.querySelector("#performance");
     if(video.paused){
@@ -97,6 +112,7 @@ function togglePlay(){
     }
 }
 
+// create audio analyzer to react to the loudness of certain channels.
 function initializeFFtAnalyser(){
     audioCtx = new AudioContext();
     let source = audioCtx.createMediaElementSource(document.querySelector('#performance'));
@@ -108,6 +124,7 @@ function initializeFFtAnalyser(){
     return analyser
 }
 
+/// takes string, creates single svg text elements, to be animated indvidually
 function createSVGLetters(text, classes, reverseText = false){
     let visSVG = document.querySelector("#visualizer");
     let letters = text.split("");
@@ -122,7 +139,7 @@ function createSVGLetters(text, classes, reverseText = false){
     }
 }
 
-// creates the text letters and sends them running around the screen wildly
+// animates letters to a random location inside the svg bounds
 function lettersRunningWild(text, duration){
     createSVGLetters(text, "visualizerText wildLetter");
     let wildTimeline = gsap.timeline();
@@ -132,11 +149,6 @@ function lettersRunningWild(text, duration){
     letters = document.getElementsByClassName("wildLetters");
     console.log(svgBounds);
 
-    // wildTimeline.set(".wildLetter",
-    // {
-    //     x: () => Math.round(svgBounds.width * Math.random()), 
-    //     y: () => Math.round(svgBounds.height * Math.random()), 
-    // });
     repetitionTimeline = gsap.timeline({repeat: 100, repeatRefresh:true});
     repetitionTimeline.to(".flagText", 
     {
@@ -146,10 +158,13 @@ function lettersRunningWild(text, duration){
         ease: "none"      
     });
     wildTimeline.add(repetitionTimeline);
+    // it is hard to control the exact timing, so we just stop at a given second
     wildTimeline.to(".flagText", {opacity:0, duration: 2, onComplete:function () {wildTimeline.pause()}}, duration)
     return wildTimeline;
 }
 
+// make letters float across the screen in red and white lines, thus simulating an
+// american Flag
 function americanFlag(texts, duration){
     const REPETITIONS = 3;
     const LINE_COUNT = 7;
@@ -219,7 +234,9 @@ function americanFlag(texts, duration){
     return flagTimeline;
 }
 
-function crossingHorizontalLines(text, duration){
+
+
+function horizontalLines(text, duration){
     let linesTimeline = gsap.timeline();
     let lines = document.getElementsByClassName("calmLines");
     console.log(lines);
@@ -259,46 +276,18 @@ function crossingHorizontalLines(text, duration){
             ease: "none",   
         }, 0);
     
+
+    //make letters disappear after duration, because the actual duration is hard
+    // to calculate with the gsap-stagggers.
     linesTimeline.to(".horizontalLineTop", {opacity:0, duration: 2, onComplete:function () {linesTimeline.pause()}}, duration);
     linesTimeline.to(".horizontalLineBottom", {opacity:0, duration: 2, onComplete:function () {linesTimeline.pause()}}, duration);
     
     return linesTimeline;
 }
-   
 
-function createLoopForLetters(text, secondsAt){
-    let loopTimeline = gsap.timeline();
-    
-    createSVGLetters(text, "letterLoop visualizerText");
-
-    loopTimeline.to(".letterLoop", 
-        {
-            duration: 25, 
-            motionPath:
-            {
-                path:"#rectPath",
-                align:"#rectPath",
-                autoRotate:true,
-                alignOrigin: [0.5, 0.5],
-            }, 
-            stagger:{
-                each: -0.6,
-            },
-            ease: "none",   
-        }, 0);
-    
-    return loopTimeline;
-}
-
-function pulse(){
-    let pulsetl = gsap.timeline();
-    pulsetl.fromTo("#performance", {boxShadow: "0px 0px 3vw 0px rgba(245,183,39,0.1)"}, 
-        {boxShadow: "0px 0px 3vw 5vw rgba(245,183,39,0.05)", duration: 0.7, ease:"expo"})
-    pulsetl.to("#performance", {boxShadow: "0px 0px 3vw 5vw rgba(245,183,39,0)", duration: 0.7, ease:"none"}, )
-}
-
-function updateVisualization(){
-    requestAnimationFrame(updateVisualization);
+// scale all Letters on screen according to current loudness from fftAnalyser
+function scaleToLoudness(){
+    requestAnimationFrame(scaleToLoudness);
     let dataArray = new Uint8Array(analyser.frequencyBinCount);
     analyser.getByteTimeDomainData(dataArray);
     let scaleFact = scaleTo(dataArray[8], 115, 142, 0.7, 1.3)  

@@ -9,8 +9,10 @@ window.onload = () => {
     hendrixExperienceCover();
     hendrixExperienceSect();
     titleSection();
+    scrollImages();
 }
 
+// animate the categories on the titlescreen
 function titleSection(){
     const SUBTITLE_TIME = 4;
     titleTimeline = gsap.timeline;
@@ -18,6 +20,7 @@ function titleSection(){
     titleTimeline = gsap.timeline();
 
     for(let i = 0; i < subtitles.length; i++){
+        // float in at right time. we set the display value os the others arent visible.
         titleTimeline.from(subtitles[i],
             {
                 x: "100vw",
@@ -25,6 +28,7 @@ function titleSection(){
                 onStart: () => { subtitles[i].style.display = "block"}
             }, i*SUBTITLE_TIME);
         
+        // float out
         titleTimeline.to(subtitles[i],
             {
                 x: "-100vw",
@@ -33,9 +37,10 @@ function titleSection(){
             }, (i+1)*SUBTITLE_TIME)
     }
     titleTimeline.repeat(-1);
-    titleTimeline.play();
 }
 
+/* set the bodys backgroundColor to the current section color
+makes for smooth transitions between sections*/
 function backgroundAnimation(){
     gsap.to("body", {
         backgroundColor: "#F4F3AA",
@@ -88,6 +93,17 @@ function backgroundAnimation(){
     });
 }
 
+// make the guitar bounce to motivate scorlling
+function scrollImages(){
+    gsap.to(".scrollImg",{
+        y: "2vh",
+        duration: 1.2,
+        yoyo: true,
+        repeat: -1
+    })
+}
+
+// tilt all the pictures in the section on left and right side towards middle
 function beginningSect(){
     ScrollTrigger.create({
         trigger: "#beginningSect",
@@ -122,15 +138,9 @@ function beginningSect(){
             }
         })
     }
-    
-    gsap.to(".scrollImg",{
-        y: "2vh",
-        duration: 1.2,
-        yoyo: true,
-        repeat: -1
-    })
 }
 
+// the images in the left and right column get larger as they are scrolled into view. 
 function hendrixExperienceSect(){
     leftColumnElems = document.querySelectorAll("#hendrixExperience .leftColumn img, #hendrixExperience .leftColumn iframe");
     rightColumnElems = document.querySelectorAll("#hendrixExperience .rightColumn img, #hendrixExperience .rightColumn iframe");
@@ -142,7 +152,6 @@ function hendrixExperienceSect(){
             scrollTrigger:{ 
                 trigger: leftColumnElems[i],
                 start: "top 95%",
-                end: "bottom center"
             }
         })
     }
@@ -159,6 +168,12 @@ function hendrixExperienceSect(){
     }
 }
 
+
+// on the title cover of the hendrix Experience section, 
+// change up the base values of the noise to make a fluid effect. 
+// only do this for a short time and when in view, since it is extremeley resource 
+// intensive
+// also make the background stars rotate and scale in size
 function hendrixExperienceCover(){
     noiseElem = document.getElementById("noise");
     noiseVals = [0.0, 0.0];
@@ -203,22 +218,4 @@ function hendrixExperienceCover(){
         repeat: -1,
         repeatDelay: 3
     },0);
-}
-
-function setNewNoiseAttrib(){
-    noiseElem.setAttribute("baseFrequency", noiseVals[0] + " " + noiseVals[1]);
-    noiseVals[0] = Math.random() * 0.4;
-    noiseVals[1] = Math.random() * 0.4;
-}
-
-function updateFilterFunc(selector){
-    if (typeof(selector) === "string") { 
-        e = document.querySelector(selector);
-    }
-
-    var filter = getComputedStyle(e).filter;
-    return function() {
-        e.style.transform = "translateZ(0)";
-        e.style.filter = filter;
-    }
 }
