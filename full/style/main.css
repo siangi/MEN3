@@ -116,12 +116,23 @@ body{
     width: 100%;
 }
 
-.rainbowSwoosh{
+.swooshContainer{
     grid-column: 6 / 7;
     width: 100%;
+    height: 100%;
     z-index: 0;
     margin-right: 0;
     margin-left: auto;
+}
+
+#beginningSect .swooshContainer{
+    background-image: url("../resources/img/BeginningSwoosh.svg");
+    background-repeat: repeat-y;
+}
+
+#hendrixExperience .swooshContainer{
+    background-image: url("../resources/img/ExperienceSwoosh.svg");
+    background-repeat: repeat-y;
 }
 
 #beginningSect{
@@ -142,6 +153,14 @@ body{
     transform-origin: 0% 0%;
     transform: rotate(-90deg) translateX(-55vh) translateY(4vw);
     color: #810522;
+}
+
+#beginningSect .leftColumn img,#beginningSect .leftColumn iframe{
+    transform-origin: bottom left;
+}
+
+#beginningSect .rightColumn img,#beginningSect .rightColumn iframe{
+    transform-origin: bottom right;
 }
 
 .columnSection iframe{
@@ -169,7 +188,7 @@ body{
 
 
 #suproOzark{
-    transform-origin: 0.0 0.0;
+    transform-origin: 0.0 0.0 !important;
     transform: rotate(45deg);
 }
 
@@ -229,6 +248,10 @@ body{
 #hendrixExperience p{
     background-color: rgba(238, 203, 0, 0.4);
     box-shadow: 0 0 0.18em 0.5em rgba(238, 203, 0, 0.40);
+}
+
+#hendrixExperience .leftColumn img, #hendrixExperience .leftColumn iframe, #hendrixExperience .rightColumn img, #hendrixExperience .rightColumn iframe{
+    transform-origin: center center;
 }
 
 

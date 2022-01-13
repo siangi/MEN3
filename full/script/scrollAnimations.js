@@ -4,8 +4,9 @@ let noiseVals =[];
 window.onload = () => {
     gsap.registerPlugin(ScrollTrigger)
     setupDeathSectAnimations();
-    pinSectionTitle();
-    starAnimations();
+    beginningSect();
+    hendrixExperienceCover();
+    hendrixExperienceSect();
 }
 
 function setupDeathSectAnimations(){
@@ -60,16 +61,77 @@ function setupDeathSectAnimations(){
     });
 }
 
-function pinSectionTitle(){
+function beginningSect(){
     ScrollTrigger.create({
         trigger: "#beginningSect",
         pin: ".subtitlePin",
         start: "top top",
-        end: "bottom center"
+        end: "bottom center"});
+
+    leftColumnElems = document.querySelectorAll("#beginningSect .leftColumn img, #beginningSect .leftColumn iframe");
+    rightColumnElems = document.querySelectorAll("#beginningSect .rightColumn img, #beginningSect .rightColumn iframe");
+
+    for(let i = 0; i < leftColumnElems.length; i++){
+        gsap.from(leftColumnElems[i],{
+            transform: "rotate(-5deg)",
+            duration: 0.5,
+            scrollTrigger:{ 
+                trigger: leftColumnElems[i],
+                start: "top 90%",
+                end: "bottom center"
+            }
+        })
+    }
+    
+    for(let i = 0; i < rightColumnElems.length; i++){
+        gsap.from(rightColumnElems[i],{
+            transform: "rotate(5deg)",
+            duration: 0.15,
+            scrollTrigger:{ 
+                trigger: rightColumnElems[i],
+                start: "top 90%"
+            }
+        })
+    }
+    
+    gsap.to(".scrollImg",{
+        y: "2vh",
+        duration: 1.2,
+        yoyo: true,
+        repeat: -1,
+
     })
 }
 
-function starAnimations(){
+function hendrixExperienceSect(){
+    leftColumnElems = document.querySelectorAll("#hendrixExperience .leftColumn img, #hendrixExperience .leftColumn iframe");
+    rightColumnElems = document.querySelectorAll("#hendrixExperience .rightColumn img, #hendrixExperience .rightColumn iframe");
+
+    for(let i = 0; i < leftColumnElems.length; i++){
+        gsap.from(leftColumnElems[i],{
+            transform: "scale(0.9)",
+            duration: 0.5,
+            scrollTrigger:{ 
+                trigger: leftColumnElems[i],
+                start: "top 95%",
+                end: "bottom center"
+            }
+        })
+    }
+    
+    for(let i = 0; i < rightColumnElems.length; i++){
+        gsap.from(rightColumnElems[i],{
+            transform: "scale(0.9)",
+            duration: 0.15,
+            scrollTrigger:{ 
+                trigger: rightColumnElems[i],
+                start: "top 95%"
+            }
+        })
+    }
+}
+
+function hendrixExperienceCover(){
     noiseElem = document.getElementById("noise");
     noiseVals = [0.0, 0.0];
     
