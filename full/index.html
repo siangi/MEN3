@@ -12,14 +12,22 @@
     <link rel="stylesheet" href="style/main.css">
 </head>
 <body>
-    <div class="section" id="titleSect">
-        <h1>Jimi Hendrix</h1>
-        <p class="subtitle">Scrolle, um seine Geschichte zu erleben</p>
-        <div id="chapterOverview">
-            <h2>erste Jahre</h2>
-            <h2>the Jimi Hendrix Experience</h2>
-            <h2>Woodstock</h2>
-            <h2>Absturz</h2>
+    <div id="titleSect">
+        <div class="swooshContainerTitle"></div>
+        <div id="titlePerformance">
+            <video autoplay muted>
+                <source src="resources/video/starSpangledBannerCropped.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="titleTextContainer">
+            <h1>Jimi Hendrix</h1>
+            <p class="subtitle">Scrolle, um seine Geschichte zu erleben</p>
+            <div id="chapterOverview">
+                <h2>erste Jahre</h2>
+                <h2>the Jimi Hendrix Experience</h2>
+                <h2>Woodstock</h2>
+                <h2>Absturz</h2>
+            </div>
         </div>
     </div>
     <div class="section long columnSection" id="beginningSect">
@@ -133,7 +141,7 @@
                 <br><br>
                 Klicke auf den Knopf unten um das Video und einige andere Eindrücke des Festivals zu sehen.
             </p>
-            <svg width="129" height="150" viewBox="0 0 129 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg id="playBtn"width="129" height="150" viewBox="0 0 129 150" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M-0.000332236 0.521729L129 74.9999L-0.000333534 149.478L-0.000332236 0.521729Z" fill="white"/>
             </svg>                       
         </div>

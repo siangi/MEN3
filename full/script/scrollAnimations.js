@@ -4,7 +4,7 @@ backgroundColors = []
 
 window.onload = () => {
     gsap.registerPlugin(ScrollTrigger)
-    setupDeathSectAnimations();
+    backgroundAnimation();
     beginningSect();
     hendrixExperienceCover();
     hendrixExperienceSect();
@@ -36,18 +36,18 @@ function titleSection(){
     titleTimeline.play();
 }
 
-function setupDeathSectAnimations(){
-    gsap.to(".section", {
+function backgroundAnimation(){
+    gsap.to("body", {
         backgroundColor: "#F4F3AA",
         scrollTrigger: {
-            trigger: "#beginningSect",
+            trigger: "#titleSect",
             start: "top center",
             end: "top top",
             scrub: true
         },
     });
 
-    gsap.to(".section", {
+    gsap.to("body", {
         backgroundColor: "#EECB00",
         scrollTrigger: {
             trigger: "#hendrixExperienceAnimation",
@@ -57,8 +57,8 @@ function setupDeathSectAnimations(){
         },
     });
 
-    gsap.to(".section", {
-        backgroundColor: "#474747",
+    gsap.to("body", {
+        backgroundColor: "#0F090F",
         scrollTrigger: {
             trigger: "#woodstockPerformance",
             start: "top center",
@@ -67,7 +67,7 @@ function setupDeathSectAnimations(){
         },
     });
 
-    gsap.to(".section", {
+    gsap.to("body", {
         backgroundColor: "#0F090F",
         scrollTrigger: {
             trigger: "#downfall",
@@ -77,7 +77,7 @@ function setupDeathSectAnimations(){
         },
     });
 
-    gsap.to(".section", {
+    gsap.to("body", {
         backgroundColor: "#000000",
         scrollTrigger: {
             trigger: "#deathSect",
@@ -93,7 +93,7 @@ function beginningSect(){
         trigger: "#beginningSect",
         pin: ".subtitlePin",
         start: "top top",
-        end: "bottom center"});
+        end: "bottom 50%"});
 
     leftColumnElems = document.querySelectorAll("#beginningSect .leftColumn img, #beginningSect .leftColumn iframe");
     rightColumnElems = document.querySelectorAll("#beginningSect .rightColumn img, #beginningSect .rightColumn iframe");
