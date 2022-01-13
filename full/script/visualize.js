@@ -8,8 +8,47 @@ window.addEventListener("load", (event) => {
     simultTimeline = gsap.timeline();
     simultTimeline.pause();
     createVisualizer();    
+    introStart();
 });
 
+
+function introStart(){
+    title = document.querySelector("#woodstockIntro");
+    screen = document.querySelector("#woodstockIntro");
+    console.log(title);
+    title.onclick = (event)=> {
+        gsap.to("#woodstockIntro", {
+            y: "-100vh",
+            opacity: "0",
+            duration: 2,
+            onComplete: () =>{
+                let elem = document.getElementById("woodstockIntro");
+                elem.display = "none";
+            }
+        })
+    }
+}
+
+function createGalleryTimeline(){
+    const IMAGE_LOOKAT_TIME = 6;
+    images = document.querySelectorAll(".introImg");
+    galleryTimeline = gsap.timeline();
+    for(let i = 0; i < images.length; i++){
+        galleryTimeline.from(images[i],
+            {
+                y: "100vh",
+                duration: 1.5,
+                onStart: () => { images[i].style.display = "block" }
+            }, i*IMAGE_LOOKAT_TIME)
+        galleryTimeline.to(images[i], {
+            y: "-100vh",
+            duration: 1.5,
+            onComplete: () => { images[i].style.display = "none" }
+        }, (i+1)*IMAGE_LOOKAT_TIME)
+    }
+
+    return galleryTimeline;
+}
 
 function createVisualizer(){
     // initializeFFtAnalyser();
@@ -20,7 +59,8 @@ function createVisualizer(){
     MotionPathPlugin.convertToPath("#rectPath", true);
     MotionPathPlugin.convertToPath(".flagPath", true);
     
-    simultTimeline.add(crossingHorizontalLines("star spangled banner", 35), 0);
+    simultTimeline.add(createGalleryTimeline(), 0);
+    simultTimeline.add(crossingHorizontalLines(["jimi hendrix","star spangled banner"], 5), 30);
     simultTimeline.add(americanFlag(["god Bless USA", 
     "Vietnam War", 
     "Chicago Riots", 
@@ -184,8 +224,8 @@ function crossingHorizontalLines(text, duration){
     let lines = document.getElementsByClassName("calmLines");
     console.log(lines);
     
-    createSVGLetters(text, "horizontalLineTop visualizerText");
-    createSVGLetters(text, "horizontalLineBottom visualizerText");
+    createSVGLetters(text[0], "horizontalLineTop visualizerText");
+    createSVGLetters(text[1], "horizontalLineBottom visualizerText");
    
     linesTimeline.to(".horizontalLineTop", 
         { 
@@ -196,10 +236,10 @@ function crossingHorizontalLines(text, duration){
                 alignOrigin: [0.5, 0.0],
             }, 
             stagger:{
-                each: -0.45,
-                repeat: 3
+                each: -0.25,
+                repeat: 0
             },
-            duration: 10,
+            duration: duration,
             ease: "none",   
         }, 0);
 
@@ -212,10 +252,10 @@ function crossingHorizontalLines(text, duration){
                 alignOrigin: [0.5, 1.0],
             }, 
             stagger:{
-                each: -0.45,
-                repeat: 3
+                each: -0.25,
+                repeat: 0
             },
-            duration: 10,
+            duration: duration,
             ease: "none",   
         }, 0);
     

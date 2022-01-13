@@ -264,17 +264,75 @@ body{
     margin-left: 2vw;
 }
 
+#hendrixExperience .secondImg{
+    max-height: 80vh;
+    width: 50vh;
+}
+
 #woodstockPerformance{
-    position: relative;
-    z-index: -2;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 100%;
+    z-index: 0;
     background-color: rgb(182, 182, 182);
 }
 
+#woodstockIntro{
+    background-color: #B91F48;
+    color: white;
+    grid-row: 1;
+    grid-column: 1;
+    z-index: 3;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    align-content: center;    
+}
+#introImgContainer{
+    
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+.introImg{
+    grid-column: 1;
+    grid-row: 1;
+    display: none;
+    /* opacity: 0;  */
+    z-index: 3;
+    align-self: center;
+    justify-self: center;
+    width: 60%;
+    height: auto;
+}
+
+#woodstockIntro h2{
+    align-self: center;
+}
+
+#woodstockIntro p{
+    width: 30%;
+    align-self: center;
+    text-align: center;
+}
+
+#woodstockIntro svg{
+    margin-top: 7vh;
+    align-self: center;
+    height: 10vh;
+    width: auto;
+
+}
+
+
+
 #performanceContainer{
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
+    grid-column: 1;
+    grid-row: 1;
+    z-index: 1;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -285,14 +343,16 @@ body{
 
 
 #visualizer{
+    grid-column: 1;
+    grid-row: 1;
+    z-index: 2;
     width: 100%;
     height: 100%;
     mix-blend-mode: color-dodge;
 }
 
 .visualizerText{
-    z-index: 0;
-    right: 50%;
+    z-index: 2;
     font-size: 1.2em;
     font-family: "jmh-psychedelic-caps";
 }
